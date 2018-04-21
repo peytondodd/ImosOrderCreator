@@ -1,0 +1,1 @@
+1. make a script to run and generate address in fenton area and put into a txt file. use Trulia to find the houses.
