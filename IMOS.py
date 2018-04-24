@@ -17,9 +17,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-class IMOS(unittest.TestCase):
-
-
 ##################################
 #        ACOUNT CREATION
 ##################################
@@ -278,5 +275,6 @@ class IMOS(unittest.TestCase):
         
     
         
-if __name__ == "__main__":
-    unittest.main() 
+
+if __name__ == '__main__':
+    run()
