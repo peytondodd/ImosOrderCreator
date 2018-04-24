@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 def test_example():
-    driver = webdriver.PhantomJS()
+    driver = webdriver.Firefox()
     driver.get("http://vagga.readthedocs.org/")
     assert "Welcome to Vagga" in driver.title
     driver.close()
