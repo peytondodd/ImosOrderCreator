@@ -20,10 +20,10 @@ import time
 ##################################
 #        ACOUNT CREATION
 ##################################
-    def random_email(self, length):
+    def random_email(length):
         return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample(["@gmail.com", "@icloud.com", "@yahoo.com", "@mail.com", "@firefoxmail.com"],  1)
 
-    def random_password(self, length):
+    def random_password(length):
         return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  4)
 
     def random_firstname(self):
