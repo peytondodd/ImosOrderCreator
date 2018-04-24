@@ -198,7 +198,7 @@ class IMOS():
 #         START PROCESS 
 ##################################
     def run(self):
-        for i in range(self.NUMBER_OF_ORDERS):
+        #for i in range(self.NUMBER_OF_ORDERS):
             browser = self.browser
             browser.get(self.IMOS_DOMAIN)
         
@@ -216,10 +216,10 @@ class IMOS():
             self.OrderStatus()
             
             #save screen shot of order created before next order.
-            browser.save_screenshot(self.SAVE_SCREENSHOT)
+           # browser.save_screenshot(self.SAVE_SCREENSHOT)
             
         # 30 mins between orders
-        time.sleep(self.TIME_BETWEEN_ORDERS)
+       # time.sleep(self.TIME_BETWEEN_ORDERS)
 
 
 ##################################
@@ -277,4 +277,4 @@ class IMOS():
     
         
 if __name__ == "__main__":
-    IMOS().run()
+    IMOS().run() 
