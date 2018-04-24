@@ -14,9 +14,8 @@ REGISTER = ('https://www.letsget.net/(S(jggjirci2tdctkj20ivzf4j5))/Public/Custom
 LOGIN_ID = ('ctl00_BP_Content_lnkLogin')
 
 def register():
-    driver = webdriver.Firefox()
-    driver.get(REGISTER)
-	driver.implicitly_wait(WAIT_TIME)
+   driver = webdriver.Firefox()
+   driver.get(REGISTER)
 
 if __name__ == '__main__':
     register()
