@@ -8,15 +8,16 @@ IMOS_ZIP = '63026'
 IMOS_STATE = 'MO'
 IMOS_PHONENUMBER = '6363493399'
 
-REGISTER_ID = ('ctl00_BP_Content_lblRegisterNow')
+WAIT_TIME = '5'
+
+REGISTER = ('https://www.letsget.net/(S(jggjirci2tdctkj20ivzf4j5))/Public/CustomerRegistration.aspx')
 LOGIN_ID = ('ctl00_BP_Content_lnkLogin')
 
-def test_example():
+def register():
     driver = webdriver.Firefox()
-    driver.get(IMOS_DOMAIN)
-	elem = driver.find_element_by_name("q")
-	elem.send_keys("pycon India 2015")
-	elem.send_keys(Keys.RETURN)
+    driver.get(REGISTER)
+	driver.implicitly_wait(WAIT_TIME)
 
 if __name__ == '__main__':
-    test_example()
+    register()
+	
