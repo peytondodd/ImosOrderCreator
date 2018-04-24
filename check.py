@@ -14,8 +14,8 @@ LOGIN_ID = ('ctl00_BP_Content_lnkLogin')
 def test_example():
     driver = webdriver.Firefox()
     driver.get(IMOS_DOMAIN)
-	driver.find_element_by_id(LOGIN_ID).click()
-	driver.find_element_by_id(REGISTER_ID).click()
+	driver.find_element_by_link_text(LOGIN_ID).click()
+	#driver.find_element_by_id(REGISTER_ID).click()
 
 if __name__ == '__main__':
     test_example()
