@@ -12,8 +12,8 @@ REGISTER_ID = ('ctl00_BP_Content_lblRegisterNow')
 LOGIN_ID = ('ctl00_BP_Content_lnkLogin')
 
 def test_example():
-    driver = webdriver.Firefox()
-    driver.get(IMOS_DOMAIN)
+    browser = webdriver.Firefox()
+    browser.get(IMOS_DOMAIN)
 	browser.find_element_by_id(LOGIN_ID).click()
 	browser.find_element_by_id(REGISTER_ID).click()
 
