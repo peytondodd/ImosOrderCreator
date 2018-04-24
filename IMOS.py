@@ -17,14 +17,86 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-class IMOS():
+class IMOS(test.CASE):
+
+
+##################################
+#        ACOUNT CREATION
+##################################
+    def random_email(self, length):
+        return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample(["@gmail.com", "@icloud.com", "@yahoo.com", "@mail.com", "@firefoxmail.com"],  1)
+
+    def random_password(self, length):
+        return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  4)
+
+    def random_firstname(self):
+        fname = open('firstname.txt').read().splitlines()
+        return random.choice(fname)
+  
+    def random_lastname(self):
+        lname = open('lastname.txt').read().splitlines()
+        return random.choice(lname)
+
+    def random_phonenumber(self):
+        return random.sample([314, 636],  1) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  3) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  4)
+
+##################################
+#        ADDRESS CREATION
+##################################
+
+        
+##################################
+#        PIZZA CREATER
+##################################
+    def random_pizza(self):
+        kind = random.sample([1,2,3,4,5,6,7],1)
+        return random.sample([self.PIZZA_CHEESE,self.DELUXE,self.PIZZA_VEGGIE,self.PIZZA_ALLMEAT,self.PIZZA_BBQ, self.PIZZA_EGG, self.PIZZA_RANDOM],  kind)
+        
+        # random_pizza_size
+    def random_pizza_size(self):
+        sizee = random.sample([1,2,3,4],1)
+        return random.sample([self.PIZZA_SIZE_10,self.SIZE_12,self.PIZZA_SIZE_14,self.PIZZA_SIZE_16], sizee)
+        
+    def random_toppings(self): 
+        tops = random.sample([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],1)
+        return random.sample([self.PIZZA_TOPPINGS_CHEESE,self.PIZZA_TOPPINGS_SAUSAGE,
+        self.PIZZA_TOPPINGS_PEPPERONI,self.PIZZA_TOPPINGS_BACON,self.PIZZA_TOPPINGS_HAMBURGER,
+        self.PIZZA_TOPPINGS_CANADIANBACON,self.PIZZA_TOPPINGS_CHICKEN,self.PIZZA_TOPPINGS_ANCHOVY,
+        self.PIZZA_TOPPINGS_MUCHROOM,self.PIZZA_TOPPINGS_ONION,self.PIZZA_TOPPINGS_GREENPEPPER,
+        self.PIZZA_TOPPINGS_BLACKOLIVE,self.PIZZA_TOPPINGS_TOMATO,self.PIZZA_TOPPINGS_PINEAPPLE,
+        self.PIZZA_TOPPINGS_JALAPENO, self.PIZZA_TOPPINGS_PEPPERONCINI,self.PIZZA_TOPPINGS_SHRIMP], tops)
+        
+    def random_extra_toppings(self):
+        extops = random.sample([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],1)
+        return random.sample([self.PIZZA_TOPPINGS_CHEESE,self.PIZZA_TOPPINGS_SAUSAGE,
+        self.PIZZA_TOPPINGS_PEPPERONI,self.PIZZA_TOPPINGS_BACON,self.PIZZA_TOPPINGS_HAMBURGER,
+        self.PIZZA_TOPPINGS_CANADIANBACON,self.PIZZA_TOPPINGS_CHICKEN,self.PIZZA_TOPPINGS_ANCHOVY,
+        self.PIZZA_TOPPINGS_MUCHROOM,self.PIZZA_TOPPINGS_ONION,self.PIZZA_TOPPINGS_GREENPEPPER,
+        self.PIZZA_TOPPINGS_BLACKOLIVE,self.PIZZA_TOPPINGS_TOMATO,self.PIZZA_TOPPINGS_PINEAPPLE,
+        self.PIZZA_TOPPINGS_JALAPENO, self.PIZZA_TOPPINGS_PEPPERONCINI,self.PIZZA_TOPPINGS_SHRIMP], extops) 
+    
+    def random_special_toppins(self):
+        special = random.sample([1,2,3,4,5,6,7,8,9],1)
+        return random.sample([self.PIZZA_SPECIAL_LIGHTCHEESE,self.PIZZA_SPECIAL_NOCHEESE,
+        self.PIZZA_SPECIAL_WELLDONE,self.PIZZA_SPECIAL_HALFBAKED,self.PIZZA_SPECIAL_DONOTCUT,
+        self.PIZZA_SPECIAL_THICKERCRUST,self.PIZZA_SPECIAL_NOSAUCE,self.PIZZA_SPECIAL_LIGHTSAUCE,
+        self.PIZZA_SPECIAL_EXTRASAUCE], special) 
+
+    def random_typed_notes(self):
+        notes = open('notes.txt').read().splitlines()
+        return random.choice(notes)
+        
+    def random_sidedips(self):
+        dips = random.sample([1,2,3,4],1)
+        return random.sample([self.PIZZA_SIDE_REDPEPPER,self.PIZZA_SIDE_PARMESANCHEESE,
+                            self.PIZZA_SIDE_IMOSHOUSEDRESSING,self.PIZZA_SIDE_SIDERANCHDRESSING], dips) 
+             
     
 ##################################
 #        SHORTCUTS
 ##################################
     def __init__(self):
         self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(30)
         
         #Imos Infoz
         self.IMOS_DOMAIN = 'https://www.letsget.net/default.aspx?accountid=5438'
@@ -123,77 +195,7 @@ class IMOS():
         self.SAVE_SCREENSHOT = '[fill in later}'
 
     
-##################################
-#        ACOUNT CREATION
-##################################
-    def random_email(self, length):
-        return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample(["@gmail.com", "@icloud.com", "@yahoo.com", "@mail.com", "@firefoxmail.com"],  1)
-
-    def random_password(self, length):
-        return ''.join(random.sample([string.ascii_lowercase, string.ascii_uppercase],  1) for i in range(length)) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  4)
-
-    def random_firstname(self):
-        fname = open('firstname.txt').read().splitlines()
-        return random.choice(fname)
-  
-    def random_lastname(self):
-        lname = open('lastname.txt').read().splitlines()
-        return random.choice(lname)
-
-    def random_phonenumber(self):
-        return random.sample([314, 636],  1) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  3) + random.sample([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],  4)
-
-##################################
-#        ADDRESS CREATION
-##################################
-
-        
-##################################
-#        PIZZA CREATER
-##################################
-    def random_pizza(self):
-        kind = random.sample([1,2,3,4,5,6,7],1)
-        return random.sample([self.PIZZA_CHEESE,self.DELUXE,self.PIZZA_VEGGIE,self.PIZZA_ALLMEAT,self.PIZZA_BBQ, self.PIZZA_EGG, self.PIZZA_RANDOM],  kind)
-        
-        # random_pizza_size
-    def random_pizza_size(self):
-        sizee = random.sample([1,2,3,4],1)
-        return random.sample([self.PIZZA_SIZE_10,self.SIZE_12,self.PIZZA_SIZE_14,self.PIZZA_SIZE_16], sizee)
-        
-    def random_toppings(self): 
-        tops = random.sample([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],1)
-        return random.sample([self.PIZZA_TOPPINGS_CHEESE,self.PIZZA_TOPPINGS_SAUSAGE,
-        self.PIZZA_TOPPINGS_PEPPERONI,self.PIZZA_TOPPINGS_BACON,self.PIZZA_TOPPINGS_HAMBURGER,
-        self.PIZZA_TOPPINGS_CANADIANBACON,self.PIZZA_TOPPINGS_CHICKEN,self.PIZZA_TOPPINGS_ANCHOVY,
-        self.PIZZA_TOPPINGS_MUCHROOM,self.PIZZA_TOPPINGS_ONION,self.PIZZA_TOPPINGS_GREENPEPPER,
-        self.PIZZA_TOPPINGS_BLACKOLIVE,self.PIZZA_TOPPINGS_TOMATO,self.PIZZA_TOPPINGS_PINEAPPLE,
-        self.PIZZA_TOPPINGS_JALAPENO, self.PIZZA_TOPPINGS_PEPPERONCINI,self.PIZZA_TOPPINGS_SHRIMP], tops)
-        
-    def random_extra_toppings(self):
-        extops = random.sample([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],1)
-        return random.sample([self.PIZZA_TOPPINGS_CHEESE,self.PIZZA_TOPPINGS_SAUSAGE,
-        self.PIZZA_TOPPINGS_PEPPERONI,self.PIZZA_TOPPINGS_BACON,self.PIZZA_TOPPINGS_HAMBURGER,
-        self.PIZZA_TOPPINGS_CANADIANBACON,self.PIZZA_TOPPINGS_CHICKEN,self.PIZZA_TOPPINGS_ANCHOVY,
-        self.PIZZA_TOPPINGS_MUCHROOM,self.PIZZA_TOPPINGS_ONION,self.PIZZA_TOPPINGS_GREENPEPPER,
-        self.PIZZA_TOPPINGS_BLACKOLIVE,self.PIZZA_TOPPINGS_TOMATO,self.PIZZA_TOPPINGS_PINEAPPLE,
-        self.PIZZA_TOPPINGS_JALAPENO, self.PIZZA_TOPPINGS_PEPPERONCINI,self.PIZZA_TOPPINGS_SHRIMP], extops) 
-    
-    def random_special_toppins(self):
-        special = random.sample([1,2,3,4,5,6,7,8,9],1)
-        return random.sample([self.PIZZA_SPECIAL_LIGHTCHEESE,self.PIZZA_SPECIAL_NOCHEESE,
-        self.PIZZA_SPECIAL_WELLDONE,self.PIZZA_SPECIAL_HALFBAKED,self.PIZZA_SPECIAL_DONOTCUT,
-        self.PIZZA_SPECIAL_THICKERCRUST,self.PIZZA_SPECIAL_NOSAUCE,self.PIZZA_SPECIAL_LIGHTSAUCE,
-        self.PIZZA_SPECIAL_EXTRASAUCE], special) 
-
-    def random_typed_notes(self):
-        notes = open('notes.txt').read().splitlines()
-        return random.choice(notes)
-        
-    def random_sidedips(self):
-        dips = random.sample([1,2,3,4],1)
-        return random.sample([self.PIZZA_SIDE_REDPEPPER,self.PIZZA_SIDE_PARMESANCHEESE,
-                            self.PIZZA_SIDE_IMOSHOUSEDRESSING,self.PIZZA_SIDE_SIDERANCHDRESSING], dips) 
-                                            
+                               
 ##################################
 #         START PROCESS 
 ##################################
@@ -277,4 +279,4 @@ class IMOS():
     
         
 if __name__ == "__main__":
-    IMOS().run() 
+    test.run() 
