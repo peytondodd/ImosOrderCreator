@@ -13,9 +13,16 @@ LOGIN_ID = ('ctl00_BP_Content_lnkLogin')
 
 def test_example():
     driver = webdriver.Firefox()
-    driver.get(IMOS_DOMAIN)
-	driver.find_element_by_id('ctl00_BP_Content_lnkLogin')
-	#driver.find_element_by_id(REGISTER_ID).click()
+	driver.get("https://www.facebook.com/")
+
+
+	username = driver.find_element_by_id('email').send_keys('email')
+
+	password = driver.find_element_by_id('pass').send_keys('password')
+
+
+
+login = driver.find_element_by_id('loginbutton').click()
 
 if __name__ == '__main__':
     test_example()
