@@ -17,7 +17,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-class IMOS(test.CASE):
+class IMOS(unittest.TestCase):
 
 
 ##################################
@@ -95,7 +95,7 @@ class IMOS(test.CASE):
 ##################################
 #        SHORTCUTS
 ##################################
-    def __init__(self):
+    def setupboi(self):
         self.browser = webdriver.Firefox()
         
         #Imos Infoz
@@ -279,4 +279,4 @@ class IMOS(test.CASE):
     
         
 if __name__ == "__main__":
-    test.run() 
+    unittest.main() 
