@@ -17,7 +17,7 @@ def register():
    driver = webdriver.Firefox()
    driver.get(REGISTER)
 
-def account_create()
+def account_create():
    driver.find_element_by_id('ctl00_BP_Content_uLoginInfo_txtEmailAddress').clear()
    driver.find_element_by_id('ctl00_BP_Content_uLoginInfo_txtEmailAddress').send_keys(IMOS_CITY) 
    
