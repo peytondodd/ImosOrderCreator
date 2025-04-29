@@ -1,12 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-IMOS_DOMAIN = 'https://www.letsget.net/default.aspx?accountid=5438'
-IMOS_ADDRESS = '133 Fiedler Ln'
-IMOS_CITY = 'Fenton'
-IMOS_ZIP = '63026'
-IMOS_STATE = 'MO'
-IMOS_PHONENUMBER = '6363493399'
+
 
 WAIT_TIME = '5'
 
